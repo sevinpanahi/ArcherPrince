@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://citcfskcb01tb"]
+
+[ext_resource type="Script" uid="uid://biow2uonmkakv" path="res://game/script/bullet.gd" id="1_o3r35"]
+[ext_resource type="Texture2D" uid="uid://1wtmxyduhw6y" path="res://Asset/VFX/VFX_Land.png" id="2_i8gap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw1rw"]
+atlas = ExtResource("2_i8gap")
+region = Rect2(0, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1p0r"]
+atlas = ExtResource("2_i8gap")
+region = Rect2(80, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gpo2"]
+atlas = ExtResource("2_i8gap")
+region = Rect2(160, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhmm2"]
+atlas = ExtResource("2_i8gap")
+region = Rect2(240, 0, 80, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buqk7"]
+atlas = ExtResource("2_i8gap")
+region = Rect2(320, 0, 80, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esc1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw1rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1p0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gpo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhmm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buqk7")
+}],
+"loop": 0,
+"name": &"start",
+"speed": 15.0
+}]
+
+[node name="bullet" type="Area2D" unique_id=1443318187]
+script = ExtResource("1_o3r35")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=571338110]
+position = Vector2(0, -86)
+sprite_frames = SubResource("SpriteFrames_esc1f")
+animation = &"start"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
